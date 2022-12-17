@@ -1,17 +1,21 @@
+import queries from './api/queries'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
+
 import formatDate from '@/lib/utils/formatDate'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
 const MAX_DISPLAY = 5
+export const getServerSideProps = async () => {
+  //const posts = await getAllFilesFrontMatter('blog')
+  let posts = null
+  const response = (await queries.getArticles(0)).data
 
-export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('blog')
-
+  posts = await response.data.articles.data
+  console.log(posts)
   return { props: { posts } }
 }
 
@@ -31,7 +35,7 @@ export default function Home({ posts }) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
+            const { slug, publishedAt, title, introduction, tags } = frontMatter.attributes
             return (
               <li key={slug} className="py-12">
                 <article>
@@ -39,7 +43,7 @@ export default function Home({ posts }) {
                     <dl>
                       <dt className="sr-only">Published on</dt>
                       <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date)}</time>
+                        <time dateTime={publishedAt}>{formatDate(publishedAt)}</time>
                       </dd>
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
@@ -53,14 +57,14 @@ export default function Home({ posts }) {
                               {title}
                             </Link>
                           </h2>
-                          <div className="flex flex-wrap">
+                          {/* <div className="flex flex-wrap">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
-                          </div>
+                          </div> */}
                         </div>
                         <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                          {summary}
+                          {introduction}
                         </div>
                       </div>
                       <div className="text-base font-medium leading-6">
