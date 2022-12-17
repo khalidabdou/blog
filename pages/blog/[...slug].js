@@ -1,7 +1,8 @@
 import PageTitle from '@/components/PageTitle'
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import ReactHtmlParser, { domToReact } from 'html-react-parser'
+import { dark } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import queries from 'pages/api/queries'
-
 const DEFAULT_LAYOUT = 'PostLayout'
 
 // export async function getStaticPaths() {
@@ -62,19 +63,43 @@ export async function getServerSideProps(context) {
 
 export default function Blog({ params }) {
   console.log(params)
-  const { content } = params
+  const { content, title } = params
+  const options = {
+    replace: ({ attribs, children }) => {
+      if (!attribs) {
+        return
+      }
 
+      //if attribs.class start with ''
+      if (attribs.class && attribs.class.startsWith('language')) {
+        return (
+          <SyntaxHighlighter
+            language=""
+            style={dark}
+            showLineNumbers={true}
+            className={'mt-4 mb-4'}
+            lineProps={''}
+          >
+            {domToReact(children)}
+          </SyntaxHighlighter>
+        )
+      }
+      //check if tag is image
+    },
+  }
   return (
     <>
-      {
-        <MDXLayoutRenderer
-          layout={content.layout || DEFAULT_LAYOUT}
-          mdxSource={content}
-          frontMatter={content}
-          prev={1}
-          next={10}
-        />
-      }
+      <div className="main-wrapper p-4 text-start">
+        <article className="blog-post p-md-5 px-3 py-5">
+          <div className="single-col-max-width container">
+            <header className="blog-post-header">
+              <h1 className="title mb-2">{title}</h1>
+            </header>
+            {ReactHtmlParser(content, options)}
+          </div>
+          <hr />
+        </article>
+      </div>
     </>
   )
 }
