@@ -1,9 +1,14 @@
 import PageTitle from '@/components/PageTitle'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import ReactHtmlParser, { domToReact } from 'html-react-parser'
-import { dark } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
+
+import { darcula } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import queries from 'pages/api/queries'
 const DEFAULT_LAYOUT = 'PostLayout'
+import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import Pre from '@/components/Pre'
+import { PageSEO } from '@/components/SEO'
+import { description } from '@/data/siteMetadata'
 
 // export async function getStaticPaths() {
 //   const posts = getFiles('blog')
@@ -63,7 +68,7 @@ export async function getServerSideProps(context) {
 
 export default function Blog({ params }) {
   console.log(params)
-  const { content, title } = params
+  const { content, title, introduction } = params
   const options = {
     replace: ({ attribs, children }) => {
       if (!attribs) {
@@ -73,22 +78,20 @@ export default function Blog({ params }) {
       //if attribs.class start with ''
       if (attribs.class && attribs.class.startsWith('language')) {
         return (
-          <SyntaxHighlighter
-            language=""
-            style={dark}
-            showLineNumbers={true}
-            className={'mt-4 mb-4'}
-            lineProps={''}
-          >
-            {domToReact(children)}
-          </SyntaxHighlighter>
+          <Pre>
+            <SyntaxHighlighter language="javascript" style={darcula}>
+              {domToReact(children)}
+            </SyntaxHighlighter>
+          </Pre>
         )
       }
       //check if tag is image
     },
   }
+
   return (
     <>
+      <PageSEO title={title} description={introduction} />
       <div className="main-wrapper p-4 text-start">
         <article className="blog-post p-md-5 px-3 py-5">
           <div className="single-col-max-width container">

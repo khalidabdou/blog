@@ -1,16 +1,21 @@
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
+  title: 'The Art of Programming: Techniques and Best Practices',
+  author: 'Abdellah Khalid',
+  headerTitle: "Abdellah's Blog",
+  description: `Welcome to our blog about programming! Here, you'll find a wide range of resources and information 
+  on all things coding. Whether you're just getting started with programming or you're a seasoned pro,
+   we've got something for you. Our blog covers topics ranging from the basics of programming languages like
+    Java and Python to advanced techniques and best practices for software development. We'll also share insights 
+    on the latest trends in the tech industry and offer tips for staying up-to-date with the ever-evolving world of 
+    programming. Join us as we explore the exciting world of code and learn how to create amazing software solutions.`,
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  siteUrl: 'https://blog.khalidabdellah.com',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'address@yoursite.com',
+  email: 'khald.abdou2020@gmail.com',
   github: 'https://github.com',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
@@ -24,7 +29,7 @@ const siteMetadata = {
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
     umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
-    googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalyticsId: 'G-YMBVX6L755', // e.g. UA-000000-2 or G-XXXXXXX
     posthogAnalyticsId: '', // posthog.init e.g. phc_5yXvArzvRdqtZIsHkEm3Fkkhm3d0bEYUXCaFISzqPSQ
   },
   newsletter: {
