@@ -98,6 +98,8 @@ export default function Blog({ params }) {
             <header className="blog-post-header">
               <h1 className="title mb-2">{title}</h1>
             </header>
+
+            <h4 className="title mb-2 mt-2"> {introduction}</h4>
             {ReactHtmlParser(content, options)}
           </div>
           <hr />
