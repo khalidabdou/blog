@@ -1,5 +1,5 @@
 ---
-name: Tails Azimuth
+name: abdellah khalid
 avatar: /static/images/avatar.png
 occupation: Professor of Atmospheric Science
 company: Stanford University
@@ -9,8 +9,10 @@ linkedin: https://www.linkedin.com
 github: https://github.com
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+Hi, my name is Abdellah Khalid and I am a highly skilled Android developer with a passion for creating innovative and engaging mobile applications. With a strong background in computer science and a deep understanding of the Android ecosystem, I have the skills and knowledge to take on any Android development project.
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+Over the years, I have honed my programming skills and gained experience working on a variety of Android projects, from simple utility apps to complex, feature-rich applications. I am comfortable working with a range of programming languages and frameworks, including Java, Kotlin, and Jetpack Compose. I also have experience working with popular libraries and tools such as Android Studio, Git, and Gradle.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+In addition to my technical expertise, I am a strong team player with excellent communication skills. I thrive in collaborative environments and enjoy working with others to bring ideas to life. I am always looking for new challenges and opportunities to grow as a developer, and I am excited to continue learning and expanding my skillset.
+
+If you're looking for a talented and dedicated Android developer, look no further! I am confident that my skills and experience make me the perfect fit for your project. Let's work together to create something amazing!

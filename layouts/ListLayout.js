@@ -1,5 +1,5 @@
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
+
 import siteMetadata from '@/data/siteMetadata'
 import { useState } from 'react'
 import Pagination from '@/components/Pagination'
@@ -50,7 +50,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
         <ul>
           {/* {!filteredBlogPosts.length && 'No posts found.'} */}
           {displayPosts.map((frontMatter) => {
-            const { slug, publishedAt, title, introduction, tags } = frontMatter.attributes
+            const { slug, publishedAt, title, introduction } = frontMatter.attributes
             return (
               <li key={slug} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
