@@ -10,7 +10,7 @@ const siteMetadata = {
     programming. Join us as we explore the exciting world of code and learn how to create amazing software solutions.`,
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://blog.khalidabdellah.com',
+  siteUrl: 'https://dev.khalidabdellah.com',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
