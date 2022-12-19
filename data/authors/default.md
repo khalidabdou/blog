@@ -1,12 +1,11 @@
 ---
 name: abdellah khalid
 avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
+occupation: I am a highly skilled Android developer
+company: AgaSof - web agency
+email: khald.abdou2020@gmail.com
+linkedin: https://www.linkedin.com/in/abdellah-khalid/
+github: https://github.com/khalidabdou
 ---
 
 Hi, my name is Abdellah Khalid and I am a highly skilled Android developer with a passion for creating innovative and engaging mobile applications. With a strong background in computer science and a deep understanding of the Android ecosystem, I have the skills and knowledge to take on any Android development project.
