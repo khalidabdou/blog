@@ -1,6 +1,6 @@
 export const Articles = (offset) =>
   `query Articles {
-    articles(pagination: { limit: 10 ,start : ` +
+    articles(pagination: { limit: 50 ,start : ` +
   offset +
   `}) {
       data {
@@ -17,7 +17,15 @@ export const Articles = (offset) =>
                 url
               }
             }
-          }
+          }          
+        }
+      }
+      meta {
+        pagination {
+          page
+          pageSize
+          total
+          pageCount
         }
       }
     }

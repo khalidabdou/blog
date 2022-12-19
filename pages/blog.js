@@ -22,12 +22,12 @@ export const getServerSideProps = async () => {
   const response = (await queries.getArticles(0)).data
 
   posts = await response.data.articles.data
-
-  console.log(posts)
+  const paginationMeta = response.data.articles.meta.pagination
+  console.log(paginationMeta)
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
-    currentPage: 1,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
+    currentPage: paginationMeta.page,
+    totalPages: paginationMeta.total,
   }
 
   return { props: { initialDisplayPosts, posts, pagination } }
