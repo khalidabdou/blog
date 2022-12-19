@@ -26,8 +26,8 @@ export const getServerSideProps = async () => {
   console.log(paginationMeta)
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
-    currentPage: paginationMeta.page,
-    totalPages: paginationMeta.total,
+    currentPage: 1,
+    totalPages: paginationMeta.pageCount,
   }
 
   return { props: { initialDisplayPosts, posts, pagination } }

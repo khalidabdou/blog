@@ -12,10 +12,10 @@ const MAX_DISPLAY = 5
 export const getServerSideProps = async () => {
   //const posts = await getAllFilesFrontMatter('blog')
   let posts = null
-  const response = (await queries.getArticles(0)).data
+  const response = (await queries.getArticles(1)).data
 
   posts = await response.data.articles.data
-  console.log(posts)
+
   return { props: { posts } }
 }
 

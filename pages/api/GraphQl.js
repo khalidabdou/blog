@@ -1,6 +1,6 @@
 export const Articles = (offset) =>
   `query Articles {
-    articles(pagination: { limit: 50 ,start : ` +
+    articles(pagination: { limit: 5 ,start : ` +
   offset +
   `}) {
       data {

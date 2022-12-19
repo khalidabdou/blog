@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-
+import queries from '../pages/api/queries'
 import siteMetadata from '@/data/siteMetadata'
 
 const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
@@ -11,27 +11,32 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
   const subscribe = async (e) => {
     e.preventDefault()
 
-    const res = await fetch(`/api/${siteMetadata.newsletter.provider}`, {
-      body: JSON.stringify({
-        email: inputEl.current.value,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
+    // const res = await fetch(`/api/${siteMetadata.newsletter.provider}`, {
+    //   body: JSON.stringify({
+    //     email: inputEl.current.value,
+    //   }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   method: 'POST',
+    // })
+
+    await queries.creactEmail(inputEl.current.value).then((response) => {
+      console.log(response.status)
+
+      const res = response.data.data.createEmail
+      if (response.status === 200) {
+        inputEl.current.value = ''
+        setError(false)
+        setSubscribed(true)
+        setMessage('Successfully! 🎉 You are now subscribed.')
+
+        return
+      } else {
+        setError(true)
+        setMessage('Your e-mail address is invalid or you are already subscribed!')
+      }
     })
-
-    const { error } = await res.json()
-    if (error) {
-      setError(true)
-      setMessage('Your e-mail address is invalid or you are already subscribed!')
-      return
-    }
-
-    inputEl.current.value = ''
-    setError(false)
-    setSubscribed(true)
-    setMessage('Successfully! 🎉 You are now subscribed.')
   }
 
   return (

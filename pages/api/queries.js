@@ -9,14 +9,14 @@ class queries {
     return await axios.post(API + '/graphql', { query: Articles(offset) })
   }
 
-  getArticle(slug) {
+  async getArticle(slug) {
     //const reformatId=id.replace('-',' ')
     //console.log(reformatId);
     return axios.post(API + '/graphql', { query: Article(slug) })
   }
 
-  creactEmail(email) {
-    return axios.post(API + '/graphql', { query: CreactEmail(email) })
+  async creactEmail(email) {
+    return axios.post('https://strapi.khalidabdellah.com/graphql', { query: CreactEmail(email) })
   }
 }
 
