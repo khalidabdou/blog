@@ -9,6 +9,7 @@ import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import Pre from '@/components/Pre'
 import { PageSEO } from '@/components/SEO'
 import { description } from '@/data/siteMetadata'
+import Buy from '@/components/buy'
 
 // export async function getStaticPaths() {
 //   const posts = getFiles('blog')
@@ -104,6 +105,15 @@ export default function Blog({ params }) {
           </div>
           <hr />
         </article>
+        <p>
+          Hi there! I'm Abdellah Khalid, and I'm the creator of this site. I love sharing my
+          knowledge and experience with others, and I'm grateful that you've stopped by to take a
+          look. If you've found my site helpful and would like to support me in my efforts, please
+          consider buying me a coffee. Your contribution helps me to keep this site up and running,
+          and allows me to continue sharing valuable information and resources with others. Thank
+          you for your support!
+        </p>
+        <Buy />
       </div>
     </>
   )
