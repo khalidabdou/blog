@@ -1,13 +1,17 @@
 const siteMetadata = {
   title: 'The Art of Programming: Techniques and Best Practices',
   author: 'Abdellah Khalid',
-  headerTitle: "Abdellah's Blog",
+  headerTitle: 'SpecialOnes',
   description: `Welcome to our blog about programming! Here, you'll find a wide range of resources and information 
   on all things coding. Whether you're just getting started with programming or you're a seasoned pro,
    we've got something for you. Our blog covers topics ranging from the basics of programming languages like
     Java and Python to advanced techniques and best practices for software development. We'll also share insights 
     on the latest trends in the tech industry and offer tips for staying up-to-date with the ever-evolving world of 
     programming. Join us as we explore the exciting world of code and learn how to create amazing software solutions.`,
+  spon: `Hi there! I'm Abdellah Khalid, and I'm the creator of this site. I love sharing my knowledge and experience with 
+    others, and I'm grateful that you've stopped by to take a look. If you've found my site helpful and would like to support
+     me in my efforts, please consider buying me a coffee. Your contribution helps me to keep this site up and running, 
+     and allows me to continue sharing valuable information and resources with others. Thank you for your support!`,
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'specialones.online/',

@@ -1,49 +1,12 @@
-import PageTitle from '@/components/PageTitle'
-import SyntaxHighlighter from 'react-syntax-highlighter'
 import ReactHtmlParser, { domToReact } from 'html-react-parser'
 
-import { darcula } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import queries from 'pages/api/queries'
-const DEFAULT_LAYOUT = 'PostLayout'
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
+
 import Pre from '@/components/Pre'
 import { PageSEO } from '@/components/SEO'
-import { description } from '@/data/siteMetadata'
+import siteMetadata, { description } from '@/data/siteMetadata'
+import CodeBlock from '@/components/prism'
 import Buy from '@/components/buy'
-
-// export async function getStaticPaths() {
-//   const posts = getFiles('blog')
-//   return {
-//     paths: posts.map((p) => ({
-//       params: {
-//         slug: formatSlug(p).split('/'),
-//       },
-//     })),
-//     fallback: false,
-//   }
-// }
-
-// export async function getStaticProps({ params }) {
-//   const allPosts = await getAllFilesFrontMatter('blog')
-//   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === params.slug.join('/'))
-//   const prev = allPosts[postIndex + 1] || null
-//   const next = allPosts[postIndex - 1] || null
-//   const post = await getFileBySlug('blog', params.slug.join('/'))
-//   const authorList = post.frontMatter.authors || ['default']
-//   const authorPromise = authorList.map(async (author) => {
-//     const authorResults = await getFileBySlug('authors', [author])
-//     return authorResults.frontMatter
-//   })
-//   const authorDetails = await Promise.all(authorPromise)
-
-//   // rss
-//   if (allPosts.length > 0) {
-//     const rss = generateRss(allPosts)
-//     fs.writeFileSync('./public/feed.xml', rss)
-//   }
-
-//   return { props: { post, authorDetails, prev, next } }
-// }
 
 export async function getServerSideProps(context) {
   const { slug } = context.query
@@ -68,7 +31,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Blog({ params }) {
-  console.log(params)
+  //console.log(params)
   const { content, title, introduction } = params
   const options = {
     replace: ({ attribs, children }) => {
@@ -78,11 +41,13 @@ export default function Blog({ params }) {
 
       //if attribs.class start with ''
       if (attribs.class && attribs.class.startsWith('language')) {
+        //return <CodeBlock code="const foo = 'bar';" language="javascript" />
         return (
           <Pre>
-            <SyntaxHighlighter language="javascript" style={darcula}>
+            {/* <SyntaxHighlighter language="javascript" style={darcula}>
               {domToReact(children)}
-            </SyntaxHighlighter>
+            </SyntaxHighlighter> */}
+            <CodeBlock code={domToReact(children)} language="javascript" />
           </Pre>
         )
       }
@@ -104,16 +69,9 @@ export default function Blog({ params }) {
             {ReactHtmlParser(content, options)}
           </div>
           <hr />
+          <p>{siteMetadata.spon}</p>
+          <Buy />
         </article>
-        <p>
-          Hi there! I'm Abdellah Khalid, and I'm the creator of this site. I love sharing my
-          knowledge and experience with others, and I'm grateful that you've stopped by to take a
-          look. If you've found my site helpful and would like to support me in my efforts, please
-          consider buying me a coffee. Your contribution helps me to keep this site up and running,
-          and allows me to continue sharing valuable information and resources with others. Thank
-          you for your support!
-        </p>
-        <Buy />
       </div>
     </>
   )
