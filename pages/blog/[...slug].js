@@ -1,5 +1,4 @@
 import ReactHtmlParser, { domToReact } from 'html-react-parser'
-
 import queries from 'pages/api/queries'
 
 import Pre from '@/components/Pre'
@@ -62,9 +61,8 @@ export default function Blog({ params }) {
         <article className="blog-post p-md-5 px-3 py-5">
           <div className="single-col-max-width container">
             <header className="blog-post-header">
-              <h1 className="title mb-2">{title}</h1>
+              <h1 className="title  mb-2">{title}</h1>
             </header>
-
             <h4 className="title mb-2 mt-2"> {introduction}</h4>
             {ReactHtmlParser(content, options)}
           </div>
