@@ -5,7 +5,7 @@ const CodeBlock = ({ code, language }) => {
   return (
     <Highlight {...defaultProps} code={code} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className + ' rounded-lg p-11'} style={style}>
+        <pre className={className + ' rounded-lg '}>
           {tokens.map((line, i) => (
             // eslint-disable-next-line react/jsx-key
             <div {...getLineProps({ line, key: i })}>

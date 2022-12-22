@@ -74,8 +74,5 @@
     "*.+(js|jsx|ts|tsx|json|css|md|mdx)": [
       "prettier --write"
     ]
-  },
-  "overrides": {
-    "autoprefixer": "10.4.5"
   }
 }
