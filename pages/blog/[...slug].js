@@ -6,6 +6,7 @@ import { PageSEO } from '@/components/SEO'
 import siteMetadata, { description } from '@/data/siteMetadata'
 import CodeBlock from '@/components/prism'
 import Buy from '@/components/buy'
+import PageTitle from '@/components/PageTitle'
 
 export async function getServerSideProps(context) {
   const { slug } = context.query
@@ -57,19 +58,21 @@ export default function Blog({ params }) {
   return (
     <>
       <PageSEO title={title} description={introduction} />
-      <div className="main-wrapper p-4 text-start">
-        <article className="blog-post p-md-5 px-3 py-5">
+      <div className="main-wrapper p-4 text-start ">
+        {/* <article className="prose blog-post p-md-5 px-3 py-5 bg-white text-black antialiased dark:bg-gray-900 dark:text-white  ">
           <div className="single-col-max-width container">
             <header className="blog-post-header">
-              <h1 className="title  mb-2">{title}</h1>
+              <PageTitle children={title} />
             </header>
-            <h4 className="title mb-2 mt-2"> {introduction}</h4>
+            <h2 className="prosebg-white text-black antialiased dark:bg-gray-900 dark:text-white ">
+              {introduction}
+            </h2>
             {ReactHtmlParser(content, options)}
           </div>
           <hr />
-          <p>{siteMetadata.spon}</p>
-          <Buy />
-        </article>
+        </article> */}
+        <p>{siteMetadata.spon}</p>
+        <Buy />
       </div>
     </>
   )
