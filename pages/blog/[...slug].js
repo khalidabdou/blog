@@ -59,18 +59,20 @@ export default function Blog({ params }) {
     <>
       <PageSEO title={title} description={introduction} />
       <div className="main-wrapper p-4 text-start ">
-        {/* <article className="prose blog-post p-md-5 px-3 py-5 bg-white text-black antialiased dark:bg-gray-900 dark:text-white  ">
+        <article className="blog-post p-md-5 prose bg-white px-3 py-5 text-black antialiased dark:bg-gray-900 dark:text-white  ">
           <div className="single-col-max-width container">
             <header className="blog-post-header">
-              <PageTitle children={title} />
+              <h1 className="bg-white text-black antialiased dark:bg-gray-900 dark:text-white ">
+                {title}
+              </h1>
             </header>
-            <h2 className="prosebg-white text-black antialiased dark:bg-gray-900 dark:text-white ">
+            <h2 className="prose bg-white text-black antialiased dark:bg-gray-900 dark:text-white ">
               {introduction}
             </h2>
             {ReactHtmlParser(content, options)}
           </div>
           <hr />
-        </article> */}
+        </article>
         <p>{siteMetadata.spon}</p>
         <Buy />
       </div>
